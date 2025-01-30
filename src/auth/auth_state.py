@@ -1,7 +1,8 @@
 # src/auth/auth_state.py
 import streamlit as st
-from typing import Optional, Dict, Any
+from typing import Optional
 from supabase import Client
+from supabase.lib.client_options import User
 
 class AuthState:
     """Manages authentication state for the application."""
@@ -50,6 +51,6 @@ class AuthState:
         """Check if user is authenticated."""
         return st.session_state.user is not None
 
-    def get_user(self) -> Optional[Dict[str, Any]]:
+    def get_user(self) -> Optional[User]:
         """Get current user data."""
         return st.session_state.user

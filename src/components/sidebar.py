@@ -8,7 +8,8 @@ def render_sidebar(auth_state: AuthState) -> None:
         
         if auth_state.is_authenticated:
             user = auth_state.get_user()
-            st.write(f"👤 {user['email']}")
+            # Access email as an attribute instead of dictionary key
+            st.write(f"👤 {user.email}")
             
             if st.button("Logout", key="logout_button"):
                 auth_state.logout()
